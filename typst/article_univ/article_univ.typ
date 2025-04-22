@@ -1,1 +1,27 @@
-
+#import "@preview/physica:0.9.5":*
+#import "@preview/ez-today:1.1.0"
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.8": *
+#show: codly-init.with()
+#set page(numbering: "1/1")
+#set heading(numbering: "1.1")
+#show heading.where(level:1): it => {
+  counter(math.equation).update(0)
+  it
+}
+#set math.equation(numbering: n => {
+  numbering("(1.1)", counter(heading).get().first(), n)
+})
+#show ref: it => {
+  let el = it.element
+  if el != none and el.func() == math.equation {
+    link(el.location(), numbering(
+      // don't forget to change the numbering according to the one
+      // you are actually using (e.g. section numbering)
+      "(1)",
+      counter(math.equation).at(el.location()).at(0) + 1
+    ))
+  } else {
+    it
+  }
+}
