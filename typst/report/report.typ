@@ -14,3 +14,13 @@
 })
 #align(right)[
   #ez-today.today(lang: "en", format: "Y m/d")]
+
+#set text(
+  lang:"ja",
+  font:"Yu Mincho",
+  size: 11pt
+)
+
+title : 
+
+#align(right)[Name : ] //name
