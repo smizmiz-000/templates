@@ -12,16 +12,4 @@
 #set math.equation(numbering: n => {
   numbering("(1.1)", counter(heading).get().first(), n)
 })
-#show ref: it => {
-  let el = it.element
-  if el != none and el.func() == math.equation {
-    link(el.location(), numbering(
-      // don't forget to change the numbering according to the one
-      // you are actually using (e.g. section numbering)
-      "(1)",
-      counter(math.equation).at(el.location()).at(0) + 1
-    ))
-  } else {
-    it
-  }
-}
+
